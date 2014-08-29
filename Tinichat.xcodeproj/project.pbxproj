@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8C01965619AAD7DD00376167 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01965519AAD7DD00376167 /* Foundation.framework */; };
+		8C01965819AAD7DD00376167 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01965719AAD7DD00376167 /* CoreGraphics.framework */; };
+		8C01965A19AAD7DD00376167 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01965919AAD7DD00376167 /* UIKit.framework */; };
+		8C01966019AAD7DD00376167 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C01965E19AAD7DD00376167 /* InfoPlist.strings */; };
+		8C01966219AAD7DD00376167 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C01966119AAD7DD00376167 /* main.m */; };
+		8C01966619AAD7DD00376167 /* HXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C01966519AAD7DD00376167 /* HXAppDelegate.m */; };
+		8C01966919AAD7DD00376167 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C01966719AAD7DD00376167 /* Main.storyboard */; };
+		8C01966C19AAD7DD00376167 /* HXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C01966B19AAD7DD00376167 /* HXViewController.m */; };
+		8C01966E19AAD7DD00376167 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C01966D19AAD7DD00376167 /* Images.xcassets */; };
+		8C01967519AAD7DD00376167 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01967419AAD7DD00376167 /* XCTest.framework */; };
+		8C01967619AAD7DD00376167 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01965519AAD7DD00376167 /* Foundation.framework */; };
+		8C01967719AAD7DD00376167 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01965919AAD7DD00376167 /* UIKit.framework */; };
+		8C01967F19AAD7DD00376167 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C01967D19AAD7DD00376167 /* InfoPlist.strings */; };
+		8C01968119AAD7DD00376167 /* TinichatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C01968019AAD7DD00376167 /* TinichatTests.m */; };
+		8C01969219AAD8B100376167 /* libLightspeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01969119AAD8B100376167 /* libLightspeed.a */; };
+		8C01969819AADA5500376167 /* HXLightspeedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C01969719AADA5500376167 /* HXLightspeedManager.m */; };
+		8C01969D19AB07E700376167 /* HXFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C01969C19AB07E700376167 /* HXFriendsViewController.m */; };
+		8C0196A019AB2A2E00376167 /* HXChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C01969F19AB2A2E00376167 /* HXChatViewController.m */; };
+		8C06C0A119AD76AB00939C0E /* HXImagePresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C06C0A019AD76AB00939C0E /* HXImagePresentViewController.m */; };
+		8C06C0A319ADAFA300939C0E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C06C0A219ADAFA300939C0E /* MediaPlayer.framework */; };
+		8C06C0A819ADC29B00939C0E /* HXTopicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C06C0A719ADC29B00939C0E /* HXTopicsViewController.m */; };
+		8CD0800A19B031B10013CFE4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CD0800919B031B10013CFE4 /* Security.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8C01967819AAD7DD00376167 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C01964A19AAD7DD00376167 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C01965119AAD7DD00376167;
+			remoteInfo = Tinichat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8C01965219AAD7DD00376167 /* Tinichat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinichat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C01965519AAD7DD00376167 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8C01965719AAD7DD00376167 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8C01965919AAD7DD00376167 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8C01965D19AAD7DD00376167 /* Tinichat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tinichat-Info.plist"; sourceTree = "<group>"; };
+		8C01965F19AAD7DD00376167 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8C01966119AAD7DD00376167 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8C01966319AAD7DD00376167 /* Tinichat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tinichat-Prefix.pch"; sourceTree = "<group>"; };
+		8C01966419AAD7DD00376167 /* HXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HXAppDelegate.h; sourceTree = "<group>"; };
+		8C01966519AAD7DD00376167 /* HXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HXAppDelegate.m; sourceTree = "<group>"; };
+		8C01966819AAD7DD00376167 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8C01966A19AAD7DD00376167 /* HXViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HXViewController.h; sourceTree = "<group>"; };
+		8C01966B19AAD7DD00376167 /* HXViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HXViewController.m; sourceTree = "<group>"; };
+		8C01966D19AAD7DD00376167 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8C01967319AAD7DD00376167 /* TinichatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinichatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C01967419AAD7DD00376167 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		8C01967C19AAD7DD00376167 /* TinichatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TinichatTests-Info.plist"; sourceTree = "<group>"; };
+		8C01967E19AAD7DD00376167 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8C01968019AAD7DD00376167 /* TinichatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TinichatTests.m; sourceTree = "<group>"; };
+		8C01968C19AAD8B100376167 /* AnIM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnIM.h; sourceTree = "<group>"; };
+		8C01968D19AAD8B100376167 /* AnIMMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnIMMessage.h; sourceTree = "<group>"; };
+		8C01968E19AAD8B100376167 /* AnPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnPush.h; sourceTree = "<group>"; };
+		8C01968F19AAD8B100376167 /* ArrownockException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrownockException.h; sourceTree = "<group>"; };
+		8C01969019AAD8B100376167 /* MRM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRM.h; sourceTree = "<group>"; };
+		8C01969119AAD8B100376167 /* libLightspeed.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLightspeed.a; path = LightspeedSDK/libLightspeed.a; sourceTree = "<group>"; };
+		8C01969419AAD91000376167 /* LightspeedCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightspeedCredentials.h; sourceTree = "<group>"; };
+		8C01969619AADA5500376167 /* HXLightspeedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXLightspeedManager.h; sourceTree = "<group>"; };
+		8C01969719AADA5500376167 /* HXLightspeedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXLightspeedManager.m; sourceTree = "<group>"; };
+		8C01969B19AB07E700376167 /* HXFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXFriendsViewController.h; sourceTree = "<group>"; };
+		8C01969C19AB07E700376167 /* HXFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXFriendsViewController.m; sourceTree = "<group>"; };
+		8C01969E19AB2A2E00376167 /* HXChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXChatViewController.h; sourceTree = "<group>"; };
+		8C01969F19AB2A2E00376167 /* HXChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXChatViewController.m; sourceTree = "<group>"; };
+		8C06C09F19AD76AB00939C0E /* HXImagePresentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXImagePresentViewController.h; sourceTree = "<group>"; };
+		8C06C0A019AD76AB00939C0E /* HXImagePresentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXImagePresentViewController.m; sourceTree = "<group>"; };
+		8C06C0A219ADAFA300939C0E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		8C06C0A619ADC29B00939C0E /* HXTopicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXTopicsViewController.h; sourceTree = "<group>"; };
+		8C06C0A719ADC29B00939C0E /* HXTopicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXTopicsViewController.m; sourceTree = "<group>"; };
+		8CD0800919B031B10013CFE4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C01964F19AAD7DD00376167 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C06C0A319ADAFA300939C0E /* MediaPlayer.framework in Frameworks */,
+				8C01965819AAD7DD00376167 /* CoreGraphics.framework in Frameworks */,
+				8C01965A19AAD7DD00376167 /* UIKit.framework in Frameworks */,
+				8CD0800A19B031B10013CFE4 /* Security.framework in Frameworks */,
+				8C01969219AAD8B100376167 /* libLightspeed.a in Frameworks */,
+				8C01965619AAD7DD00376167 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C01967019AAD7DD00376167 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C01967519AAD7DD00376167 /* XCTest.framework in Frameworks */,
+				8C01967719AAD7DD00376167 /* UIKit.framework in Frameworks */,
+				8C01967619AAD7DD00376167 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C01964919AAD7DD00376167 = {
+			isa = PBXGroup;
+			children = (
+				8C01969319AAD8B400376167 /* Lightspeed SDK */,
+				8C01965B19AAD7DD00376167 /* Tinichat */,
+				8C01967A19AAD7DD00376167 /* TinichatTests */,
+				8C01965419AAD7DD00376167 /* Frameworks */,
+				8C01965319AAD7DD00376167 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8C01965319AAD7DD00376167 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C01965219AAD7DD00376167 /* Tinichat.app */,
+				8C01967319AAD7DD00376167 /* TinichatTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C01965419AAD7DD00376167 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8CD0800919B031B10013CFE4 /* Security.framework */,
+				8C06C0A219ADAFA300939C0E /* MediaPlayer.framework */,
+				8C01965519AAD7DD00376167 /* Foundation.framework */,
+				8C01965719AAD7DD00376167 /* CoreGraphics.framework */,
+				8C01965919AAD7DD00376167 /* UIKit.framework */,
+				8C01967419AAD7DD00376167 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8C01965B19AAD7DD00376167 /* Tinichat */ = {
+			isa = PBXGroup;
+			children = (
+				8C01969419AAD91000376167 /* LightspeedCredentials.h */,
+				8C01966419AAD7DD00376167 /* HXAppDelegate.h */,
+				8C01966519AAD7DD00376167 /* HXAppDelegate.m */,
+				8C01969919AADA5900376167 /* Model */,
+				8C01969519AAD91800376167 /* View */,
+				8C01969A19AADA6E00376167 /* Controller */,
+				8C01966D19AAD7DD00376167 /* Images.xcassets */,
+				8C01965C19AAD7DD00376167 /* Supporting Files */,
+			);
+			path = Tinichat;
+			sourceTree = "<group>";
+		};
+		8C01965C19AAD7DD00376167 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C01965D19AAD7DD00376167 /* Tinichat-Info.plist */,
+				8C01965E19AAD7DD00376167 /* InfoPlist.strings */,
+				8C01966119AAD7DD00376167 /* main.m */,
+				8C01966319AAD7DD00376167 /* Tinichat-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8C01967A19AAD7DD00376167 /* TinichatTests */ = {
+			isa = PBXGroup;
+			children = (
+				8C01968019AAD7DD00376167 /* TinichatTests.m */,
+				8C01967B19AAD7DD00376167 /* Supporting Files */,
+			);
+			path = TinichatTests;
+			sourceTree = "<group>";
+		};
+		8C01967B19AAD7DD00376167 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C01967C19AAD7DD00376167 /* TinichatTests-Info.plist */,
+				8C01967D19AAD7DD00376167 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8C01968A19AAD8B100376167 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				8C01968B19AAD8B100376167 /* Lightspeed */,
+			);
+			name = include;
+			path = LightspeedSDK/include;
+			sourceTree = "<group>";
+		};
+		8C01968B19AAD8B100376167 /* Lightspeed */ = {
+			isa = PBXGroup;
+			children = (
+				8C01968C19AAD8B100376167 /* AnIM.h */,
+				8C01968D19AAD8B100376167 /* AnIMMessage.h */,
+				8C01968E19AAD8B100376167 /* AnPush.h */,
+				8C01968F19AAD8B100376167 /* ArrownockException.h */,
+				8C01969019AAD8B100376167 /* MRM.h */,
+			);
+			path = Lightspeed;
+			sourceTree = "<group>";
+		};
+		8C01969319AAD8B400376167 /* Lightspeed SDK */ = {
+			isa = PBXGroup;
+			children = (
+				8C01968A19AAD8B100376167 /* include */,
+				8C01969119AAD8B100376167 /* libLightspeed.a */,
+			);
+			name = "Lightspeed SDK";
+			sourceTree = "<group>";
+		};
+		8C01969519AAD91800376167 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C01966719AAD7DD00376167 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8C01969919AADA5900376167 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8C01969619AADA5500376167 /* HXLightspeedManager.h */,
+				8C01969719AADA5500376167 /* HXLightspeedManager.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8C01969A19AADA6E00376167 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8C01966A19AAD7DD00376167 /* HXViewController.h */,
+				8C01966B19AAD7DD00376167 /* HXViewController.m */,
+				8C06C0A419ADC26C00939C0E /* Friends */,
+				8C06C0A919ADC29F00939C0E /* Topics */,
+				8C06C0A519ADC28800939C0E /* Chat */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		8C06C0A419ADC26C00939C0E /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				8C01969B19AB07E700376167 /* HXFriendsViewController.h */,
+				8C01969C19AB07E700376167 /* HXFriendsViewController.m */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
+		8C06C0A519ADC28800939C0E /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				8C01969E19AB2A2E00376167 /* HXChatViewController.h */,
+				8C01969F19AB2A2E00376167 /* HXChatViewController.m */,
+				8C06C09F19AD76AB00939C0E /* HXImagePresentViewController.h */,
+				8C06C0A019AD76AB00939C0E /* HXImagePresentViewController.m */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		8C06C0A919ADC29F00939C0E /* Topics */ = {
+			isa = PBXGroup;
+			children = (
+				8C06C0A619ADC29B00939C0E /* HXTopicsViewController.h */,
+				8C06C0A719ADC29B00939C0E /* HXTopicsViewController.m */,
+			);
+			name = Topics;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8C01965119AAD7DD00376167 /* Tinichat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C01968419AAD7DD00376167 /* Build configuration list for PBXNativeTarget "Tinichat" */;
+			buildPhases = (
+				8C01964E19AAD7DD00376167 /* Sources */,
+				8C01964F19AAD7DD00376167 /* Frameworks */,
+				8C01965019AAD7DD00376167 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tinichat;
+			productName = Tinichat;
+			productReference = 8C01965219AAD7DD00376167 /* Tinichat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8C01967219AAD7DD00376167 /* TinichatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C01968719AAD7DD00376167 /* Build configuration list for PBXNativeTarget "TinichatTests" */;
+			buildPhases = (
+				8C01966F19AAD7DD00376167 /* Sources */,
+				8C01967019AAD7DD00376167 /* Frameworks */,
+				8C01967119AAD7DD00376167 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C01967919AAD7DD00376167 /* PBXTargetDependency */,
+			);
+			name = TinichatTests;
+			productName = TinichatTests;
+			productReference = 8C01967319AAD7DD00376167 /* TinichatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C01964A19AAD7DD00376167 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HX;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Herxun;
+				TargetAttributes = {
+					8C01967219AAD7DD00376167 = {
+						TestTargetID = 8C01965119AAD7DD00376167;
+					};
+				};
+			};
+			buildConfigurationList = 8C01964D19AAD7DD00376167 /* Build configuration list for PBXProject "Tinichat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8C01964919AAD7DD00376167;
+			productRefGroup = 8C01965319AAD7DD00376167 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8C01965119AAD7DD00376167 /* Tinichat */,
+				8C01967219AAD7DD00376167 /* TinichatTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8C01965019AAD7DD00376167 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C01966E19AAD7DD00376167 /* Images.xcassets in Resources */,
+				8C01966019AAD7DD00376167 /* InfoPlist.strings in Resources */,
+				8C01966919AAD7DD00376167 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C01967119AAD7DD00376167 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C01967F19AAD7DD00376167 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C01964E19AAD7DD00376167 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C06C0A119AD76AB00939C0E /* HXImagePresentViewController.m in Sources */,
+				8C01969819AADA5500376167 /* HXLightspeedManager.m in Sources */,
+				8C01966C19AAD7DD00376167 /* HXViewController.m in Sources */,
+				8C0196A019AB2A2E00376167 /* HXChatViewController.m in Sources */,
+				8C06C0A819ADC29B00939C0E /* HXTopicsViewController.m in Sources */,
+				8C01966619AAD7DD00376167 /* HXAppDelegate.m in Sources */,
+				8C01966219AAD7DD00376167 /* main.m in Sources */,
+				8C01969D19AB07E700376167 /* HXFriendsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C01966F19AAD7DD00376167 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C01968119AAD7DD00376167 /* TinichatTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8C01967919AAD7DD00376167 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8C01965119AAD7DD00376167 /* Tinichat */;
+			targetProxy = 8C01967819AAD7DD00376167 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8C01965E19AAD7DD00376167 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C01965F19AAD7DD00376167 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8C01966719AAD7DD00376167 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C01966819AAD7DD00376167 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8C01967D19AAD7DD00376167 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C01967E19AAD7DD00376167 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8C01968219AAD7DD00376167 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-all_load";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Debug;
+		};
+		8C01968319AAD7DD00376167 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7s,
+					armv7,
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-all_load";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Release;
+		};
+		8C01968519AAD7DD00376167 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tinichat/Tinichat-Prefix.pch";
+				INFOPLIST_FILE = "Tinichat/Tinichat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LightspeedSDK",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8C01968619AAD7DD00376167 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tinichat/Tinichat-Prefix.pch";
+				INFOPLIST_FILE = "Tinichat/Tinichat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LightspeedSDK",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8C01968819AAD7DD00376167 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tinichat.app/Tinichat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tinichat/Tinichat-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TinichatTests/TinichatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8C01968919AAD7DD00376167 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Tinichat.app/Tinichat";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Tinichat/Tinichat-Prefix.pch";
+				INFOPLIST_FILE = "TinichatTests/TinichatTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C01964D19AAD7DD00376167 /* Build configuration list for PBXProject "Tinichat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C01968219AAD7DD00376167 /* Debug */,
+				8C01968319AAD7DD00376167 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C01968419AAD7DD00376167 /* Build configuration list for PBXNativeTarget "Tinichat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C01968519AAD7DD00376167 /* Debug */,
+				8C01968619AAD7DD00376167 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C01968719AAD7DD00376167 /* Build configuration list for PBXNativeTarget "TinichatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C01968819AAD7DD00376167 /* Debug */,
+				8C01968919AAD7DD00376167 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8C01964A19AAD7DD00376167 /* Project object */;
+}
