@@ -159,7 +159,7 @@
         } else {
             IPVC.isSendMode = YES;
             if (!_isTopicMode) {
-                IPVC.receiverId = [[self.friendInfo objectForKey:@"customFields"] objectForKey:@"clientId"];
+                IPVC.receiverId = [self.friendInfo objectForKey:@"clientId"];
             } else {
                 IPVC.topicInfo = self.topicInfo;
             }
@@ -324,7 +324,7 @@
     if (!self.messageTextField.text.length) return;
     if (!_isTopicMode) {
         [[[HXLightspeedManager manager] anIM] sendMessage:self.messageTextField.text
-                                                toClients:[NSSet setWithObject:[[self.friendInfo objectForKey:@"customFields"] objectForKey:@"clientId"]]
+                                                toClients:[NSSet setWithObject:[self.friendInfo objectForKey:@"clientId"]]
                                            needReceiveACK:YES];
     } else {
         [[[HXLightspeedManager manager] anIM] sendMessage:self.messageTextField.text
@@ -386,7 +386,7 @@
                 [[[HXLightspeedManager manager] anIM] sendMessage:@""
                                                        customData:@{@"type": @"link",
                                                                     @"data": @"http://www.lightspeedmbs.com"}
-                                                        toClients:[NSSet setWithObject:[[self.friendInfo objectForKey:@"customFields"] objectForKey:@"clientId"]]
+                                                        toClients:[NSSet setWithObject:[self.friendInfo objectForKey:@"clientId"]]
                                                    needReceiveACK:YES];
                 break;
             }
@@ -395,7 +395,7 @@
                 [[[HXLightspeedManager manager] anIM] sendMessage:@""
                                                        customData:@{@"type": @"video",
                                                                     @"data": @"http://testking.omyapps.com.s3.amazonaws.com/demo01.MP4"}
-                                                        toClients:[NSSet setWithObject:[[self.friendInfo objectForKey:@"customFields"] objectForKey:@"clientId"]]
+                                                        toClients:[NSSet setWithObject:[self.friendInfo objectForKey:@"clientId"]]
                                                    needReceiveACK:YES];
                 break;
             }
@@ -404,7 +404,7 @@
                 [[[HXLightspeedManager manager] anIM] sendMessage:@""
                                                        customData:@{@"type": @"location",
                                                                     @"data": @"25.0335,121.564505"}
-                                                        toClients:[NSSet setWithObject:[[self.friendInfo objectForKey:@"customFields"] objectForKey:@"clientId"]]
+                                                        toClients:[NSSet setWithObject:[self.friendInfo objectForKey:@"clientId"]]
                                                    needReceiveACK:YES];
                 break;
             }
@@ -455,7 +455,7 @@
 
 - (void)getChatHistory
 {
-    [[[HXLightspeedManager manager] anIM] getHistory:[NSSet setWithObject:[[self.friendInfo objectForKey:@"customFields"] objectForKey:@"clientId"] ]
+    [[[HXLightspeedManager manager] anIM] getHistory:[NSSet setWithObject:[self.friendInfo objectForKey:@"clientId"]]
                                             clientId:[HXLightspeedManager manager].clientId
                                                limit:30
                                            timestamp:0
