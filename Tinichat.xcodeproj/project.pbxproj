@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132825C31A42E8F300F109DF /* libLightspeed-all-in-one-2.19.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 132825C21A42E8F300F109DF /* libLightspeed-all-in-one-2.19.a */; };
 		8C01965619AAD7DD00376167 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01965519AAD7DD00376167 /* Foundation.framework */; };
 		8C01965819AAD7DD00376167 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01965719AAD7DD00376167 /* CoreGraphics.framework */; };
 		8C01965A19AAD7DD00376167 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01965919AAD7DD00376167 /* UIKit.framework */; };
@@ -21,7 +22,6 @@
 		8C01967719AAD7DD00376167 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01965919AAD7DD00376167 /* UIKit.framework */; };
 		8C01967F19AAD7DD00376167 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8C01967D19AAD7DD00376167 /* InfoPlist.strings */; };
 		8C01968119AAD7DD00376167 /* TinichatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C01968019AAD7DD00376167 /* TinichatTests.m */; };
-		8C01969219AAD8B100376167 /* libLightspeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C01969119AAD8B100376167 /* libLightspeed.a */; };
 		8C01969819AADA5500376167 /* HXLightspeedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C01969719AADA5500376167 /* HXLightspeedManager.m */; };
 		8C01969D19AB07E700376167 /* HXFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C01969C19AB07E700376167 /* HXFriendsViewController.m */; };
 		8C0196A019AB2A2E00376167 /* HXChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C01969F19AB2A2E00376167 /* HXChatViewController.m */; };
@@ -42,6 +42,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		132825BC1A42E8F300F109DF /* AnIM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnIM.h; sourceTree = "<group>"; };
+		132825BD1A42E8F300F109DF /* AnIMMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnIMMessage.h; sourceTree = "<group>"; };
+		132825BE1A42E8F300F109DF /* AnPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnPush.h; sourceTree = "<group>"; };
+		132825BF1A42E8F300F109DF /* AnSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnSocial.h; sourceTree = "<group>"; };
+		132825C01A42E8F300F109DF /* AnSocialFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnSocialFile.h; sourceTree = "<group>"; };
+		132825C11A42E8F300F109DF /* ArrownockException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrownockException.h; sourceTree = "<group>"; };
+		132825C21A42E8F300F109DF /* libLightspeed-all-in-one-2.19.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libLightspeed-all-in-one-2.19.a"; sourceTree = "<group>"; };
 		8C01965219AAD7DD00376167 /* Tinichat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tinichat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C01965519AAD7DD00376167 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8C01965719AAD7DD00376167 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,12 +68,6 @@
 		8C01967C19AAD7DD00376167 /* TinichatTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TinichatTests-Info.plist"; sourceTree = "<group>"; };
 		8C01967E19AAD7DD00376167 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8C01968019AAD7DD00376167 /* TinichatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TinichatTests.m; sourceTree = "<group>"; };
-		8C01968C19AAD8B100376167 /* AnIM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnIM.h; sourceTree = "<group>"; };
-		8C01968D19AAD8B100376167 /* AnIMMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnIMMessage.h; sourceTree = "<group>"; };
-		8C01968E19AAD8B100376167 /* AnPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnPush.h; sourceTree = "<group>"; };
-		8C01968F19AAD8B100376167 /* ArrownockException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrownockException.h; sourceTree = "<group>"; };
-		8C01969019AAD8B100376167 /* MRM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRM.h; sourceTree = "<group>"; };
-		8C01969119AAD8B100376167 /* libLightspeed.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLightspeed.a; path = LightspeedSDK/libLightspeed.a; sourceTree = "<group>"; };
 		8C01969419AAD91000376167 /* LightspeedCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LightspeedCredentials.h; sourceTree = "<group>"; };
 		8C01969619AADA5500376167 /* HXLightspeedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXLightspeedManager.h; sourceTree = "<group>"; };
 		8C01969719AADA5500376167 /* HXLightspeedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXLightspeedManager.m; sourceTree = "<group>"; };
@@ -91,7 +92,7 @@
 				8C01965819AAD7DD00376167 /* CoreGraphics.framework in Frameworks */,
 				8C01965A19AAD7DD00376167 /* UIKit.framework in Frameworks */,
 				8CD0800A19B031B10013CFE4 /* Security.framework in Frameworks */,
-				8C01969219AAD8B100376167 /* libLightspeed.a in Frameworks */,
+				132825C31A42E8F300F109DF /* libLightspeed-all-in-one-2.19.a in Frameworks */,
 				8C01965619AAD7DD00376167 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,10 +110,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		132825B91A42E8F300F109DF /* LightspeedSDK */ = {
+			isa = PBXGroup;
+			children = (
+				132825BA1A42E8F300F109DF /* include */,
+				132825C21A42E8F300F109DF /* libLightspeed-all-in-one-2.19.a */,
+			);
+			path = LightspeedSDK;
+			sourceTree = "<group>";
+		};
+		132825BA1A42E8F300F109DF /* include */ = {
+			isa = PBXGroup;
+			children = (
+				132825BB1A42E8F300F109DF /* Arrownock */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		132825BB1A42E8F300F109DF /* Arrownock */ = {
+			isa = PBXGroup;
+			children = (
+				132825BC1A42E8F300F109DF /* AnIM.h */,
+				132825BD1A42E8F300F109DF /* AnIMMessage.h */,
+				132825BE1A42E8F300F109DF /* AnPush.h */,
+				132825BF1A42E8F300F109DF /* AnSocial.h */,
+				132825C01A42E8F300F109DF /* AnSocialFile.h */,
+				132825C11A42E8F300F109DF /* ArrownockException.h */,
+			);
+			path = Arrownock;
+			sourceTree = "<group>";
+		};
 		8C01964919AAD7DD00376167 = {
 			isa = PBXGroup;
 			children = (
-				8C01969319AAD8B400376167 /* Lightspeed SDK */,
+				132825B91A42E8F300F109DF /* LightspeedSDK */,
 				8C01965B19AAD7DD00376167 /* Tinichat */,
 				8C01967A19AAD7DD00376167 /* TinichatTests */,
 				8C01965419AAD7DD00376167 /* Frameworks */,
@@ -184,36 +215,6 @@
 				8C01967D19AAD7DD00376167 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8C01968A19AAD8B100376167 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				8C01968B19AAD8B100376167 /* Lightspeed */,
-			);
-			name = include;
-			path = LightspeedSDK/include;
-			sourceTree = "<group>";
-		};
-		8C01968B19AAD8B100376167 /* Lightspeed */ = {
-			isa = PBXGroup;
-			children = (
-				8C01968C19AAD8B100376167 /* AnIM.h */,
-				8C01968D19AAD8B100376167 /* AnIMMessage.h */,
-				8C01968E19AAD8B100376167 /* AnPush.h */,
-				8C01968F19AAD8B100376167 /* ArrownockException.h */,
-				8C01969019AAD8B100376167 /* MRM.h */,
-			);
-			path = Lightspeed;
-			sourceTree = "<group>";
-		};
-		8C01969319AAD8B400376167 /* Lightspeed SDK */ = {
-			isa = PBXGroup;
-			children = (
-				8C01968A19AAD8B100376167 /* include */,
-				8C01969119AAD8B100376167 /* libLightspeed.a */,
-			);
-			name = "Lightspeed SDK";
 			sourceTree = "<group>";
 		};
 		8C01969519AAD91800376167 /* View */ = {

@@ -12,22 +12,34 @@
 	<dict>
 		<key>5C22E31B-AFD1-4D9B-9563-10685FAE8031</key>
 		<string>https://github.com/lightspeedmbs/lightspeed-talk-ios-example.git</string>
+		<key>E0215D70CC953D80955A8A2A6F7B37CD0527D06E</key>
+		<string>https://github.com/lightspeedmbs/lightspeed-talk-ios-example.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Tinichat.xcodeproj/project.xcworkspace</string>
+	<string>Tinichat.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5C22E31B-AFD1-4D9B-9563-10685FAE8031</key>
+		<string>../../../Tinichat-iOS</string>
+		<key>E0215D70CC953D80955A8A2A6F7B37CD0527D06E</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/lightspeedmbs/lightspeed-talk-ios-example.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5C22E31B-AFD1-4D9B-9563-10685FAE8031</string>
+	<string>E0215D70CC953D80955A8A2A6F7B37CD0527D06E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E0215D70CC953D80955A8A2A6F7B37CD0527D06E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>public_Tinichat</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

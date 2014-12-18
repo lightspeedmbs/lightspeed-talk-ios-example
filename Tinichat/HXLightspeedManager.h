@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MRM.h"
 #import "AnIM.h"
+
+typedef enum {
+    AnSocialManagerGET,
+    AnSocialManagerPOST
+} AnSocialManagerMethod;
 
 @protocol HXLightspeedManagerSignInDelegate
 - (void)lightspeedTalkSignedIn;
@@ -28,7 +32,7 @@
 @end
 
 @interface HXLightspeedManager : NSObject
-@property (strong, nonatomic) NSString *circleId;
+@property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) NSString *clientId;
 @property (strong, nonatomic) NSString *username;
 @property (weak, nonatomic) id<HXLightspeedManagerSignInDelegate> signInDelegate;
@@ -36,11 +40,14 @@
 @property (weak, nonatomic) id<HXLightspeedManagerTopicDelegate> topicDelegate;
 
 + (HXLightspeedManager *)manager;
-- (MRM *)mrm;
 - (AnIM *)anIM;
-
 - (void)logOut;
 - (void)saveFriendsIds:(NSArray *)friends;
 - (NSDictionary *)getCircleFriendForClientId:(NSString *)clientId;
 
+- (void)sendRequest:(NSString *)path
+             method:(AnSocialManagerMethod)method
+             params:(NSDictionary *)params
+            success:(void (^)(NSDictionary *response))success
+            failure:(void (^)(NSDictionary *response))failure;
 @end

@@ -9,6 +9,6 @@
 #ifndef ChatDemo_LightspeedCredentials_h
 #define ChatDemo_LightspeedCredentials_h
 
-#define LIGHTSPEED_APP_KEY @"NnCm2dtNc76pA2nDE0PezZZFMo5tDMeD" // ChatDemo
+#define LIGHTSPEED_APP_KEY @"" // need your App Key
 
 #endif

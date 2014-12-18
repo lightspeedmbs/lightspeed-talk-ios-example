@@ -55,43 +55,61 @@
 
 #pragma mark - Segue
 
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if (self.friendsArray[self.tableView.indexPathForSelectedRow.row][@"clientId"])
+    {
+        return YES;
+    }
+    return NO;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     HXChatViewController *CVC = [segue destinationViewController];
     CVC.hidesBottomBarWhenPushed = YES;
     CVC.friendInfo = self.friendsArray[self.tableView.indexPathForSelectedRow.row];
-    self.friendChatting = [[self.friendsArray[self.tableView.indexPathForSelectedRow.row] objectForKey:@"customFields"] objectForKey:@"clientId"];
+    self.friendChatting = [self.friendsArray[self.tableView.indexPathForSelectedRow.row] objectForKey:@"clientId"];
 }
 
 #pragma mark - Helper
 
 - (void)loadCircleUser
 {
-    [[[HXLightspeedManager manager] mrm] sendPostRequest:@"users/search"
-                                                  params:@{@"pagesize": @99} // Get all users in circle, no filter
-                                                 success:^(int statusCode, NSDictionary *response) {
-                                                     NSLog(@"Recieved a list of circle users");
-                                                     self.friendsArray =  [[NSArray arrayWithArray:[[response objectForKey:@"response"] objectForKey:@"users"]] mutableCopy];
-                                                     [[HXLightspeedManager manager] saveFriendsIds:self.friendsArray];
-                                                     
-                                                     // Remove logged-in user from the friends list, also store all the clientIds of friends and query for their online status
-                                                     NSMutableSet *userSet = [[NSMutableSet alloc] initWithCapacity:0];
-                                                     __block NSUInteger _idx = -1;
-                                                     [self.friendsArray enumerateObjectsUsingBlock:^(NSDictionary *friend, NSUInteger idx, BOOL *stop) {
-                                                         if ([[friend objectForKey:@"id"] isEqualToString:[[HXLightspeedManager manager] circleId]]) {
-                                                             _idx = idx;
-                                                         } else {
-                                                             [userSet addObject:[[friend objectForKey:@"customFields"] objectForKey:@"clientId"]];
-                                                         }
-                                                     }];
-                                                     if (_idx != -1)
-                                                         [self.friendsArray removeObjectAtIndex:_idx];
-                                                     [self loadCircleUserStatus:userSet];
-                                                     [self.tableView reloadData];
-                                                 }
-                                                 failure:^(int statusCode, NSDictionary *response) {
-                                                     NSLog(@"Error: %@", [[response objectForKey:@"meta"] objectForKey:@"message"]);
-                                                 }];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:@99 forKey:@"limit"];
+    
+    [[HXLightspeedManager manager]sendRequest:@"users/search.json" method:AnSocialManagerGET params:params success:^(NSDictionary* response){
+        
+        NSLog(@"success log: %@",[response description]);
+        NSLog(@"Recieved a list of circle users");
+        self.friendsArray =  [[NSArray arrayWithArray:[[response objectForKey:@"response"] objectForKey:@"users"]] mutableCopy];
+        [[HXLightspeedManager manager] saveFriendsIds:self.friendsArray];
+        
+        // Remove logged-in user from the friends list, also store all the clientIds of friends and query for their online status
+        NSMutableSet *userSet = [[NSMutableSet alloc] initWithCapacity:0];
+        __block NSUInteger _idx = -1;
+        [self.friendsArray enumerateObjectsUsingBlock:^(NSDictionary *friend, NSUInteger idx, BOOL *stop) {
+            if ([[friend objectForKey:@"id"] isEqualToString:[[HXLightspeedManager manager] userId]]) {
+                _idx = idx;
+            } else {
+                if (friend[@"clientId"])
+                    [userSet addObject:[friend objectForKey:@"clientId"]];
+            }
+        }];
+        if (_idx != -1)
+            [self.friendsArray removeObjectAtIndex:_idx];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self loadCircleUserStatus:userSet];
+            [self.tableView reloadData];
+        });
+        
+    }failure:^(NSDictionary* response){
+        NSLog(@"Error: %@", [[response objectForKey:@"meta"] objectForKey:@"message"]);
+        
+    }];
+
 }
 
 - (void)loadCircleUserStatus:(NSSet *)userSet
@@ -110,6 +128,11 @@
 
 
 #pragma mark - TableView Datasource
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -134,9 +157,9 @@
     
     nameLabel.text = [self.friendsArray[indexPath.row] objectForKey:@"username"];
     newMessageLabel.text = @"";
-    if ([self.unreadMessagesSet containsObject:[[self.friendsArray[indexPath.row] objectForKey:@"customFields"] objectForKey:@"clientId"]])
+    if ([self.unreadMessagesSet containsObject:[self.friendsArray[indexPath.row] objectForKey:@"clientId"]])
         newMessageLabel.text = @"New!";
-    NSString *status = [self.clientStatus objectForKey:[[self.friendsArray[indexPath.row] objectForKey:@"customFields"] objectForKey:@"clientId"]];
+    NSString *status = [self.clientStatus objectForKey:[self.friendsArray[indexPath.row] objectForKey:@"clientId"]];
     if (status) {
         if ([status isEqualToString:@"NO"]) {
             statusMessageLabel.text = @"Offline";
@@ -159,7 +182,7 @@
     UILabel *newMessageLabel = (UILabel *)[[tableView cellForRowAtIndexPath:indexPath] viewWithTag:101];
     if (newMessageLabel.text.length) {
         newMessageLabel.text = @"";
-        NSString *selectedId = [[self.friendsArray[indexPath.row] objectForKey:@"customFields"] objectForKey:@"clientId"];
+        NSString *selectedId = [self.friendsArray[indexPath.row] objectForKey:@"clientId"];
         [self.unreadMessagesSet removeObject:selectedId];
     }
 }

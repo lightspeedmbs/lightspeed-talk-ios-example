@@ -8,10 +8,11 @@
 
 #import "HXLightspeedManager.h"
 #import "LightspeedCredentials.h"
+#import "AnSocial.h"
 
 @interface HXLightspeedManager () <AnIMDelegate>
-@property (strong, nonatomic) MRM *mrm;
 @property (strong, nonatomic) AnIM *anIM;
+@property (strong, nonatomic) AnSocial *anSocial;
 @property (strong, nonatomic) NSMutableDictionary *clientIdToCircleDictionary;
 @end
 
@@ -23,8 +24,10 @@
 {
     self = [super init];
     if (self) {
-        self.mrm = [[MRM alloc] initWithAppKey:LIGHTSPEED_APP_KEY secure:YES];
         self.anIM = [[AnIM alloc] initWithAppKey:LIGHTSPEED_APP_KEY delegate:self secure:YES];
+        self.anSocial = [[AnSocial alloc] initWithAppKey:LIGHTSPEED_APP_KEY];
+        [self.anSocial setSecureConnection:YES];
+        [self.anSocial setTimeout:20.0f];
     }
     return self;
 }
@@ -43,12 +46,12 @@
 
 - (void)anIM:(AnIM *)anIM didGetClientId:(NSString *)clientId exception:(ArrownockException *)exception;
 {
-    if (clientId && self.circleId) {
-        self.clientId = clientId;
-        [self updateClientId:clientId forCircleUser:self.circleId];
-    } else {
-        NSLog(@"Error getting clientId");
-    }
+//    if (clientId && self.userId) {
+//        self.clientId = clientId;
+//        [self updateClientId:clientId forCircleUser:self.userId];
+//    } else {
+//        NSLog(@"Error getting clientId");
+//    }
 }
 
 - (void)anIM:(AnIM *)anIM didGetClientsStatus:(NSDictionary *)clientsStatus exception:(ArrownockException *)exception
@@ -191,10 +194,6 @@
 
 #pragma mark - Public Method
 
-- (MRM *)mrm
-{
-    return _mrm;
-}
 
 - (AnIM *)anIM
 {
@@ -204,28 +203,22 @@
 - (void)logOut
 {
     [_anIM disconnect];
-    self.circleId = nil;
+    self.userId = nil;
     self.clientId = nil;
     self.username = nil;
     self.talkDelegate = nil;
     [self.clientIdToCircleDictionary removeAllObjects];
-    [_mrm sendPostRequest:@"users/logout"
-                   params:nil
-                  success:^(int statusCode, NSDictionary *response) {
-                      NSLog(@"User logged out: %@", [[[response objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"id"]);
-                  }
-                  failure:^(int statusCode, NSDictionary *response) {
-                      NSLog(@"Error: %@", [[response objectForKey:@"meta"] objectForKey:@"message"]);
-                  }];
+
 }
 
 - (void)saveFriendsIds:(NSArray *)friends
 {
     if (!self.clientIdToCircleDictionary)
         self.clientIdToCircleDictionary = [[NSMutableDictionary alloc] initWithCapacity:0];
+    
     [friends enumerateObjectsUsingBlock:^(id friend, NSUInteger idx, BOOL *stop) {
-//        [self.clientIdToCircleDictionary setObject:friend[@"id"] forKey:friend[@"customFields"][@"clientId"]];
-        [self.clientIdToCircleDictionary setObject:friend forKey:friend[@"customFields"][@"clientId"]];
+        if (friend[@"clientId"])
+            [self.clientIdToCircleDictionary setObject:friend forKey:friend[@"clientId"]];
     }];
 }
 
@@ -234,33 +227,22 @@
     return self.clientIdToCircleDictionary[clientId];
 }
 
-
-#pragma mark - Helper
-
-- (void)updateClientId:(NSString *)clientId forCircleUser:(NSString *)circleId
+- (void)sendRequest:(NSString *)path
+             method:(AnSocialManagerMethod)method
+             params:(NSDictionary *)params
+            success:(void (^)(NSDictionary *response))success
+            failure:(void (^)(NSDictionary *response))failure
 {
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    [params setObject:circleId forKey:@"id"];
-    
-    // Data in 'customFields' needs to be in JSON String format
-    NSError* error;
-    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:@{@"clientId": clientId}
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:&error];
-    NSString* jsonString = [[NSString alloc] initWithData:jsonData
-                                                 encoding:NSUTF8StringEncoding];
-    [params setObject:jsonString forKey:@"customFields"];
-    
-    [self.mrm sendPostRequest:@"users/update"
-                       params:params
-                      success:^(int statusCode, NSDictionary *response) {
-                          NSLog(@"User updated, response: %@", [response objectForKey:@"response"]);
-                          
-                          [self.signInDelegate lightspeedTalkSignedIn];
-                      }
-                      failure:^(int statusCode, NSDictionary *response) {
-                          NSLog(@"Error: %@", [[response objectForKey:@"meta"] objectForKey:@"message"]);
-                      }];
+    int methodInt = method;
+    [self.anSocial sendRequest:path
+                        method:methodInt
+                        params:params
+                       success:^(NSDictionary *response) {
+                           success(response);
+                       } failure:^(NSDictionary *response) {
+                           failure(response);
+                       }];
 }
+
 
 @end

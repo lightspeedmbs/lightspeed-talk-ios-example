@@ -67,45 +67,39 @@
     [params setObject:self.nameTextField.text forKey:@"username"];
     [params setObject:self.passwordTextField.text forKey:@"password"];
     
-    [[[HXLightspeedManager manager] mrm] sendPostRequest:@"users/login"
-                                                  params:params
-                                                 success:^(int statusCode, NSDictionary *response) {
-                                                     NSString *circleId = [[[response objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"id"];
-                                                     [HXLightspeedManager manager].circleId = circleId;
-                                                     NSLog(@"User login, circle id is: %@", circleId);
-                                                     [HXLightspeedManager manager].username = self.nameTextField.text;
-                                                     // Get Talk Client ID using Circle ID
-                                                     [[[HXLightspeedManager manager] anIM] getClientId:circleId];
-                                                 }
-                                                 failure:^(int statusCode, NSDictionary *response) {
-                                                     NSLog(@"Error: %@", [[response objectForKey:@"meta"] objectForKey:@"message"]);
-                                                     
-                                                     int errorCode = [[[response objectForKey:@"meta"] objectForKey:@"errorCode"] intValue];
-                                                     if (errorCode == 10212) {
-                                                         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
-                                                                                                         message:@"Invalid user name or password!"
-                                                                                                        delegate:nil
-                                                                                               cancelButtonTitle:@"OK"
-                                                                                               otherButtonTitles:nil, nil];
-                                                         [alert show];
-                                                     } else {
-                                                         if ([response objectForKey:@"meta"]) {
-                                                             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
-                                                                                                             message:[[response objectForKey:@"meta"] objectForKey:@"message"]
-                                                                                                            delegate:nil
-                                                                                                   cancelButtonTitle:@"OK"
-                                                                                                   otherButtonTitles:nil, nil];
-                                                             [alert show];
-                                                         } else if ([response objectForKey:@"message"]) {
-                                                             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
-                                                                                                             message:[response objectForKey:@"message"]
-                                                                                                            delegate:nil
-                                                                                                   cancelButtonTitle:@"OK"
-                                                                                                   otherButtonTitles:nil, nil];
-                                                             [alert show];
-                                                         }
-                                                     }
-                                                 }];
+    [[HXLightspeedManager manager]sendRequest:@"users/auth.json" method:AnSocialManagerPOST params:params success:^(NSDictionary* response){
+        
+        NSLog(@"success log: %@",[response description]);
+        NSString *userId = [[[response objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"id"];
+        NSString *clientId = [[[response objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"clientId"];
+        NSLog(@"User created, user id is: %@", userId);
+        NSLog(@"User client id is: %@", clientId);
+        [HXLightspeedManager manager].userId = userId;
+        [HXLightspeedManager manager].username = self.nameTextField.text;
+        [HXLightspeedManager manager].clientId = clientId;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+          [self lightspeedTalkSignedIn];
+        });
+        
+        
+    }failure:^(NSDictionary* response){
+        NSLog(@"Error: %@", [[response objectForKey:@"meta"] objectForKey:@"message"]);
+        
+        if ([response objectForKey:@"meta"]) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
+                                                            message:[[response objectForKey:@"meta"] objectForKey:@"message"]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil, nil];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [alert show];
+            });
+        }
+        
+    }];
+    
 }
 
 - (IBAction)signUpButtonListener:(UIButton *)sender
@@ -120,51 +114,53 @@
         return;
     }
     
-    // Let's create a new Lightspeed Circle User!
+    // Let's create a new Lightspeed anSocial User!
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:self.nameTextField.text forKey:@"username"];
     [params setObject:self.passwordTextField.text forKey:@"password"];
+    [params setObject:self.passwordTextField.text forKey:@"password_confirmation"];
     
-    MRM *mrm = [[HXLightspeedManager manager] mrm];
+    // get talk client ID
+    [params setObject:@"true" forKey:@"enable_im"];
     
-    [mrm sendPostRequest:@"users/create"
-                  params:params
-                 success:^(int statusCode, NSDictionary *response) {
-                     NSString *circleId = [[[response objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"id"];
-                     NSLog(@"User created, circle id is: %@", circleId);
-                     [HXLightspeedManager manager].circleId = circleId;
-                     [HXLightspeedManager manager].username = self.nameTextField.text;
-                     [[[HXLightspeedManager manager] anIM] getClientId:circleId];
-                 }
-                 failure:^(int statusCode, NSDictionary *response) {
-                     NSLog(@"Error: %@", [[response objectForKey:@"meta"] objectForKey:@"message"]);
-                     
-                     int errorCode = [[[response objectForKey:@"meta"] objectForKey:@"errorCode"] intValue];
-                     if (errorCode == 10202) {
-                         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
-                                                                         message:@"User name already exist!"
-                                                                        delegate:nil
-                                                               cancelButtonTitle:@"OK"
-                                                               otherButtonTitles:nil, nil];
-                         [alert show];
-                     } else {
-                         if ([response objectForKey:@"meta"]) {
-                             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
-                                                                             message:[[response objectForKey:@"meta"] objectForKey:@"message"]
-                                                                            delegate:nil
-                                                                   cancelButtonTitle:@"OK"
-                                                                   otherButtonTitles:nil, nil];
-                             [alert show];
-                         } else if ([response objectForKey:@"message"]) {
-                             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
-                                                                             message:[response objectForKey:@"message"]
-                                                                            delegate:nil
-                                                                   cancelButtonTitle:@"OK"
-                                                                   otherButtonTitles:nil, nil];
-                             [alert show];
-                         }
-                     }
-                 }];
+    //get talk client ID without anSocial
+    //[[[HXLightspeedManager manager] anIM] getClientId:@"unique_symbol"];
+    
+    [[HXLightspeedManager manager]sendRequest:@"users/create.json" method:AnSocialManagerPOST params:params success:^(NSDictionary* response){
+        
+        NSLog(@"success log: %@",[response description]);
+        NSString *userId = [[[response objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"id"];
+        NSString *clientId = [[[response objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"clientId"];
+        NSLog(@"User created, user id is: %@", userId);
+        NSLog(@"User client id is: %@", clientId);
+        
+        [HXLightspeedManager manager].userId = userId;
+        [HXLightspeedManager manager].username = self.nameTextField.text;
+        [HXLightspeedManager manager].clientId = clientId;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self lightspeedTalkSignedIn];
+        });
+        
+    }failure:^(NSDictionary* response){
+        NSLog(@"Error: %@", [[response objectForKey:@"meta"] objectForKey:@"message"]);
+    
+        if ([response objectForKey:@"meta"]) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
+                                                            message:[[response objectForKey:@"meta"] objectForKey:@"message"]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil, nil];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [alert show];
+            });
+        }
+        
+    }];
+
+    
+    
 }
 
 @end
